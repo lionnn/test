@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>相逢大乐透，遇见千万可能</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport">
+<link href="css/style.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.8.0.y100.js" type="text/javascript"></script>
+</head>
+
+<body> 
+  
+  <div class="index_con">
+    <div class="logo">
+      <img src="images/tc_logo.png">
+      <img src="images/sjb_logo.png">
+    </div>
+    <div class="index_banner"><img src="images/banner.gif"></div>
+    <div class="btn">
+       <a href="Introduction.html">活动规则</a>
+       <a href="check.html">中奖查询</a>
+    </div>
+    <div class="title"></div>
+    <div class="index_data">
+      <div class="Team">
+        <ul>
+           
+        </ul>
+      </div>
+      
+      <div class="data_btn">
+         <a href="javascript:;">3<em><i>胜</i></em><i class="bg"></i></a>
+         <a href="javascript:;">1<em><i>平</i></em><i class="bg"></i></a>
+          <a href="javascript:;">0<em><i>负</i></em><i class="bg"></i></a>
+      </div>
+      
+      <div class="input"><input type="text" placeholder="首次参与请绑定活动手机号" ><span>手机号码不正确</span></div>
+      <a href="javascript:;" class="submit"><img src="images/submit.png"></a>
+    </div>
+  </div>
+  
+  <div class="question_win">
+     <img src="images/question_del.png" class="del">
+     <h1>提交前请先回答一个问题~</h1>
+     <p>本场赛事的主队是：</p>
+     <ul>
+      <li>俄罗斯</li><li>摩洛哥</li>
+      <li>阿根廷</li><li>德国</li>
+     </ul>
+     <a href="javascript:;"><img src="images/question_btn.png"></a>
+     <img src="images/ren.png" class="ren">
+     <img src="images/ball.png" class="ball">
+  </div>
+  
+  <div class="Success_win"><img src="images/question_del.png" class="del"><img src="images/Success.png" class="Success"></div>
+  
+  <!--<div class="mask" style=" display:block;"></div>
+  <div class="hint_win" style="display:block;">
+    <img src="images/hint_bg.png" class="bg">
+    <img src="images/ts_8.png" class="ts">
+    <a href="javascript:;" class="confirm"><img src="images/yes.png"></a>
+  </div>-->
+</body>
+<script type="text/javascript">
+   $(function(){
+	   //alert($(window).width());
+	   var winW = $(window).width();
+	   var winH = $(window).height();
+	   if(winW*1.77 > winH){
+		     $('.index_con').height(winW*1.77);
+		   }else{
+			   $('.index_con').height(winH);
+			   }
+	   
+	      $('.index_banner').click(function(e){
+			    e.preventDefault();
+			  });
+		  
+	        $('.data_btn a').click(function(){
+				   $(this).addClass('click').siblings().removeClass('click');
+				})
+			$('.question_win ul li').click(function(){
+				   $(this).addClass('click').siblings().removeClass('click');
+				  
+				})
+		    
+			$('.submit').click(function(){
+				   $('body').append('<div class="mask"></div>');
+				   $('.mask').show();
+				   $('.question_win').show();
+				});
+			$('.question_win a').click(function(){
+				   $('.question_win').hide();
+				   $('.Success_win').show();
+				   setTimeout(function(){
+					      $('.mask').remove();
+						  $('.Success_win').hide();
+
+					   },2000)
+				});
+			$('.question_win .del').click(function(){
+				   $('.mask').remove();
+				   $(this).parent().hide();
+				});
+		    loadlist();
+	   });
+	   
+	   function loadlist(){
+		       $('.title').html('本场竞彩截止至：2018-06-14 23:00');
+			   var html = '<li><span><img src="images/team1.png"></span><p>主/俄罗斯</p></li>'
+			            + '<li><img src="images/vs.png" class="vs"></li>'
+						+ '<li><span><img src="images/team2.png"></span><p>客/沙特</p></li>';
+			    $('.index_data .Team ul').append(html);
+			   
+		   }
+	 
+</script>
+
+</html>
